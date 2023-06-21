@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import First from './components/first';
 import Second from './components/second';
 import SignUp from './components/signup';
-
+import letstalk from './img/lets-talk.jpg';
 function App() {
   return (
     <div className="App aspect-video bg-bottom bg-gradient-to-tr from-violet-600 to-fuchsia-600 font-sans">
@@ -16,6 +16,7 @@ function App() {
           <First />
           <Second />
           <SignUp />
+          <img src= {letstalk} alt="Let's Talk!" className = "w-1/4 h-1/4 rounded-full justify-center self-end" />
         </div>
     </div>
   );
