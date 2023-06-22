@@ -8,6 +8,8 @@ function App() {
       <header className="App-header">
         <div className="p-4 font-bold underline">White. A blank page or canvas. So many possibilities.</div>
         <div className='p-4'>If you're seeing this, your repo is set up correctly</div>
+        <div className='p-4'>boom</div>
+        <div className='p-4'>boom</div>
         <First />
       </header>
     </div>
