@@ -3,7 +3,23 @@ import circle from './img/Circle.png';
 import piechart from './img/Pie_Chart.png';
 
 function ImageToAdd() {
-    if (window.innerWidth > 1200) {
+    const [width, setDimensions] = React.useState(window.innerWidth);
+
+    React.useEffect(() => {
+        
+        function handleResize() {
+          setDimensions(window.innerWidth);
+        }
+
+
+        window.addEventListener('resize', handleResize)
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+    });
+
+    if (width > 1200) {
         return (
             
             <img src={circle} alt ="image1" className="aspect-square w-96"/>
