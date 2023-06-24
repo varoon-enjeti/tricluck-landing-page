@@ -1,17 +1,16 @@
 import React from 'react';
 import logo from './logo.svg';
 import First from './components/first';
+import BottomRight from './components/bottomright';
+import BottomLeft from './components/bottomleft';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <div className="p-4 font-bold underline">White. A blank page or canvas. So many possibilities.</div>
-        <div className='p-4'>If you're seeing this, your repo is set up correctly</div>
-        <div className='p-4'>boom</div>
-        <div className='p-4'>boom</div>
-        <First />
-      </header>
+    <div className="xl:flex font-Ubuntu">
+      <BottomLeft />
+      <BottomRight />
     </div>
   );
 }
