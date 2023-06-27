@@ -11,7 +11,7 @@ export default function TopLeft() {
 
             <div className="m-12 xl:m-24 border-l-4 xl:border-l-8 border-black p-6 xl:p-10 xl:pt-12">
                 <div className="grid grid-rows-2 xl:grid-rows-4 grid-cols-1">
-                        <h1 className="text-6xl xl:text-9xl ">TriCluck</h1>
+                        <h1 className="text-6xl xl:text-7xl 2xl:text-8xl">TriCluck</h1>
                         <div className="flex m-4 xl:mt-10 object-center">
                             <a href="#"><img src={githubmark} alt="Github" className="aspect-auto w-6 xl:w-10 ml-2 hover:opacity-75"></img></a>
                             
