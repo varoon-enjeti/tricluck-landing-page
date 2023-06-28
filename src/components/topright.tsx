@@ -28,16 +28,13 @@ function ImageToAdd() {
     return <Container />;
 }
 
+
 export default function TopRight() {
 
     return (
         
         <div className="xl:w-7/12 xl:h-1/2">
 
-            <header className = "flex flex-row-reverse absolute top-0 right-0 xl:static">
-                <a href="#" className="mt-3 m-6 text-xl xl:m-4 xl:mr-10 xl:text-2xl hover:opacity-75">Product</a>
-                <a href="#" className="mt-3 text-xl xl:m-4 xl:text-2xl hover:opacity-75">Join the Waitlist!</a>
-            </header>
             <div className="grid grid-cols-5 justify-items-center p-4 xl:justify-items-start xl:grid-rows-2 xl:grid-cols-1 xl:p-24 xl:pl-48">
                 
                 <ImageToAdd />

@@ -14,7 +14,7 @@ export default function BottomRight() {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}} className="mt-12 xl:mt-0 xl:mr-48 xl:h-screen">
+    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}} className="mt-12 xl:mt-0 xl:mr-48 xl:h-screen" id="waitlist">
       <h1 className="text-5xl xl:text-7xl text-center" >Learn with Us!</h1>
       <h1 className="text-3xl xl:text-5xl text-center" >Join the Waitlist</h1>
       <form onSubmit={handleSubmit}>
