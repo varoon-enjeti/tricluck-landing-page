@@ -1,5 +1,5 @@
 import React from 'react';
-import piechart from './img/Pie_Chart.png';
+import piechart from './img/Pie_Chart.svg';
 import Container from './container';
 
 function ImageToAdd() {
@@ -22,7 +22,7 @@ function ImageToAdd() {
     if (width < 1280) {
         
         return (
-            <img src={piechart} alt ="image1" className="aspect-square m-10 w-48 col-span-2"/>
+            <img src={piechart} alt ="pie chart" className="aspect-square m-10 w-48 col-span-2"/>
         );
     }
     return <Container />;
