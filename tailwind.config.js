@@ -7,7 +7,12 @@ module.exports = {
     extend: {
       fontFamily: {
         'Ubuntu': ['Ubuntu','sans-serif']
+      },
+      colors: {
+        'off-black': '#393939',
+        'soft-blue': '#598BEB'
       }
+
     },
   },
   plugins: [],

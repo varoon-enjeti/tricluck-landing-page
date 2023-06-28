@@ -1,5 +1,5 @@
 import React from 'react';
-import phone from './img/image.png';
+import phone from './img/phone.png';
 
 export default function BottomLeft() {
   return (
