@@ -14,7 +14,7 @@ export default function BottomRight() {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', height: '100vh' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', height: '100vh', margin: 'auto', }}>
       <h1 style={{ fontSize: '4rem', color: 'black' }}>Learn with Us!</h1>
       <h1 style={{ fontSize: '3rem', color: 'black' }}>Join the Waitlist</h1>
       <form onSubmit={handleSubmit}>
@@ -33,9 +33,10 @@ export default function BottomRight() {
             placeholder="Enter your email"
             style={{
               fontSize: '1.25rem',
+              outline: 'none',
             }}
           />
-          <button type="submit" style={{ padding: '10px 10px', fontSize: '1.5rem', backgroundColor: '#4679e8', color: 'white', border: 'none', borderRadius: '20px', height:'66px' }}>
+          <button type="submit" style={{ padding: '10px 10px', fontSize: '1.3rem', backgroundColor: '#4679e8', color: 'white', border: 'none', borderRadius: '20px', height:'66px' }}>
             Submit
           </button>
         </div>

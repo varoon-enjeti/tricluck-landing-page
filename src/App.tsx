@@ -8,11 +8,11 @@ function App() {
   const isMobile = useMediaQuery({ maxWidth: 1200 }); // Define the breakpoint for mobile view
 
   return (
-    <div className="xl:flex font-Ubuntu">
-      <div className="xl:w-7/12 xl:h-1/2">
+    <div className="xl:flex font-Ubuntu h-screen">
+      <div className="xl:w-7/12 xl:h-1/2 flex justify-center items-center">
         {isMobile ? <BottomRight /> : <BottomLeft />}
       </div>
-      <div className="xl:w-5/12 xl:h-1/2">
+      <div className="xl:w-5/12 xl:h-1/2 flex justify-center items-center">
         {isMobile ? <BottomLeft /> : <BottomRight />}
       </div>
     </div>
