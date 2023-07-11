@@ -11,6 +11,9 @@ module.exports = {
       colors: {
         'off-black': '#393939',
         'soft-blue': '#598BEB'
+      },
+      maxWidth: {
+        '1/2': '50%',
       }
 
     },

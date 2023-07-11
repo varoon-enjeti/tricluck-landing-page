@@ -28,7 +28,6 @@ function ImageToAdd() {
     return <Container />;
 }
 
-
 export default function TopRight() {
 
     return (
