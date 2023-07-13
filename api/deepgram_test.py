@@ -12,32 +12,25 @@ import sys
 # Example: audio/wav
 MIMETYPE = 'audio/wav'
 
-API_KEY = ''
+API_KEY = '426ede75de63902dcec1758f2825fdecf4144b73'
 
-async def transcribe(lang1,lang2, FILE):
-
+async def transcribe(lang1,lang2, file):
     
     # Initialize the Deepgram SDK
     deepgram = Deepgram(API_KEY)
     
+    FILE = file
     # Check whether requested file is local or remote, and prepare source
-    if FILE.startswith('http'):
-        # file is remote
-        # Set the source
-        source = {
-            'url': FILE
-        }
 
-    else:
-        # file is local
-        # Open the audio file
-        audio = open(FILE, 'rb')
+    # file is local
+     # Open the audio file
+    #audio = open(FILE, 'rb')
 
-        # Set the source
-        source = {
-            'buffer': audio,
-            'mimetype': MIMETYPE
-        }
+    # Set the source
+    #source = {
+    #    'buffer': audio,
+    #    'mimetype': MIMETYPE
+    #}
         
     #detectLang = await asyncio.create_task(
     #    deepgram.transcription.prerecorded(
@@ -53,10 +46,11 @@ async def transcribe(lang1,lang2, FILE):
     
     #print(domLang)
     #if domLang == lang1:
-        print('use more other lang')
+    print('use more other lang')
         #return
     
-    audio = open(FILE, 'rb')
+    #audio = open(FILE, 'rb')
+    audio = FILE.read()
     source = {
         'buffer': audio,
         'mimetype': MIMETYPE
@@ -79,7 +73,7 @@ async def transcribe(lang1,lang2, FILE):
     # Write the response to the console
     #print(json.dumps(response, indent=4))
     
-    audio = open(FILE, 'rb')
+    #
     source = {
             'buffer': audio,
             'mimetype': MIMETYPE
@@ -136,7 +130,8 @@ async def transcribe(lang1,lang2, FILE):
         else:
             cleaned.append(combined[i]['punctuated_word'])
         i=i+1
-    cleaned.append(combined[len(combined)-1]['punctuated_word'])
+    if i < len(combined):
+        cleaned.append(combined[i]['punctuated_word'])
     toRet = " ".join(cleaned)
 
     return toRet

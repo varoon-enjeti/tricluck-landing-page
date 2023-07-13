@@ -4,18 +4,17 @@ from deepgram_test import transcribe
 from pringles import pringles
 from chatpgt import call
 from googletts import save_audio
-from recordaudio import *
 import os 
 import asyncio
+
 fname = "output.wav"
 
 app = Flask(__name__)
 CORS(app)
 
-@app.route('/record/')
-def record():
-    print("hello")
-    return {"response": record_audio()}
+@app.route('/')
+def index():
+    return "Test!"
 
 @app.route('/stop/', methods=['POST'])
 def stop():
@@ -29,11 +28,15 @@ def stop():
         
         return {"response" : "recording processed"}
 
-@app.route('/stt/<string:lang1>/<string:lang2>') #record audio w/ pyaudio and transcribe w/ deepgram
+@app.route('/stt/<string:lang1>/<string:lang2>/', methods=['POST']) #record audio w/ pyaudio and transcribe w/ deepgram
 def get_transcription(lang1,lang2):
     print("transcribing")
     print(lang1, " ", lang2)
-    transcription = asyncio.run(transcribe(lang1,lang2,fname))
+    
+    files = request.files
+    file = files.get('file')
+    transcription = asyncio.run(transcribe(lang1,lang2,file))
+    #transcription = asyncio.run(transcribe(lang1,lang2,fname))
     print(transcription)
     return jsonify({"transcription": transcription})
 

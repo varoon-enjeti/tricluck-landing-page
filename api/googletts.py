@@ -31,7 +31,7 @@ def save_audio(text):
         voice=voice, 
         audio_config=audio_config
     )
-
+    #playsound(response.audio_content)
     # The response's audio_content is binary.
     with open('neural.mp3', 'wb') as out:
         # Write the response to the output file.
