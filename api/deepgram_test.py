@@ -12,7 +12,7 @@ import sys
 # Example: audio/wav
 MIMETYPE = 'audio/wav'
 
-API_KEY = '426ede75de63902dcec1758f2825fdecf4144b73'
+API_KEY = ''
 
 async def transcribe(lang1,lang2, file):
     

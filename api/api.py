@@ -7,8 +7,6 @@ from googletts import save_audio
 import os 
 import asyncio
 
-fname = "output.wav"
-
 app = Flask(__name__)
 CORS(app)
 

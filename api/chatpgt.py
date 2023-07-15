@@ -1,5 +1,5 @@
 import openai
-openai.api_key = "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"
+openai.api_key = ""
   
 
 def gptcall(situation, vocab, micro_situational_vocab):

@@ -1,7 +1,7 @@
 
 import openai
 import json
-openai.api_key = "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"
+openai.api_key = ""
 
 def pringles(replies, question):
     
