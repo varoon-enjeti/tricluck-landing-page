@@ -1,5 +1,4 @@
 import React from 'react';
-import React from 'react';
 import { useState, useRef } from "react";
 import TopLeft from './components/topleft';
 import TopRight from './components/topright';
