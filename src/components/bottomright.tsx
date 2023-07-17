@@ -14,9 +14,9 @@ export default function BottomRight() {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center', height: '100vh' }}>
-      <h1 style={{ fontSize: '4rem', color: 'black' }}>Learn with Us!</h1>
-      <h1 style={{ fontSize: '3rem', color: 'black' }}>Join the Waitlist</h1>
+    <div style={{ display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}} className="mt-12 xl:mt-0 xl:mr-48 xl:h-screen" id="waitlist">
+      <h1 className="text-5xl xl:text-7xl text-center" >Learn with Us!</h1>
+      <h1 className="text-3xl xl:text-5xl text-center" >Join the Waitlist</h1>
       <form onSubmit={handleSubmit}>
         <div style={{ display: 'flex', alignItems: 'center',justifyContent: 'space-between', margin: '10px',
               paddingLeft: '10px',
