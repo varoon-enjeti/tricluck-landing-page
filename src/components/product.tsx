@@ -123,7 +123,7 @@ export default function AudioRecorder() {
             response = data.reply
             
         })
-        setReplying(false)
+        
         let toSpeak = new FormData()
         toSpeak.append('text',response)
         await fetch('https://api-beige-one-57.vercel.app/speak/', {
@@ -140,6 +140,7 @@ export default function AudioRecorder() {
               console.log('Audio Uploaded')
             })
             await getDownloadURL(audioRef).then(async (url) => {
+                setReplying(false)
                 setReplies([...replies,response])
                 new Audio(url).play()
             })
