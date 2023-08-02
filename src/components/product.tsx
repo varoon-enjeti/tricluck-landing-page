@@ -2,6 +2,29 @@ import React, { useState , useRef , useEffect } from 'react';
 
 import RecordRTC, { RecordRTCPromisesHandler } from "recordrtc";
 
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyB-dfOjLgyI1Bqdd4L6HwYB-Pd4JXw56kI",
+  authDomain: "tricluck-data.firebaseapp.com",
+  databaseURL: "https://tricluck-data-default-rtdb.firebaseio.com",
+  projectId: "tricluck-data",
+  storageBucket: "tricluck-data.appspot.com",
+  messagingSenderId: "1039642760753",
+  appId: "1:1039642760753:web:f702631eced4fbd53c2710",
+  measurementId: "G-W79FYMCDN0"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+
 export const useRecorderPermission = (recordingType: RecordRTC.Options["type"]) => {
     const [recorder, setRecorder] = useState<any>();
     useEffect(() => {
@@ -45,10 +68,14 @@ export default function AudioRecorder() {
     const stopRecording = async () => {
         await recorder.stopRecording();
         setIsRecording(false)
-
+        
+        let time = Date.now()
         let blob = await recorder.getBlob();
-        let data = new FormData();
-        data.append('file',blob, 'output.wav')
+        let fname = `audio/recording-website-${time}.m4a`
+        const audioRef = ref(storage, fname)
+        await uploadBytes(audioRef, blob).then(() => {
+            console.log('Audio Uploaded')
+          })
         /*//await fetch('http://localhost:5000/stop', {
         await fetch('https://api-beige-one-57.vercel.app/stop', {
             method:'POST',
@@ -63,17 +90,21 @@ export default function AudioRecorder() {
 
         setTranscribing(true)
         let firstMsg = ""
-        
-        //await fetch('http://localhost:5000/stt/' + 'en' + '/' + 'zh' + '/', {
-        await fetch('https://api-beige-one-57.vercel.app/stt/' + baseLang + '/' + targetLang + '/', {
-            method: 'POST',
-            body:data,
-            headers: {
-                accept: 'application/json'
-            }
-        }).then(res => res.json()).then(data => {
-            firstMsg = data.transcription
-            setMsgs([...messages, data.transcription])
+        await getDownloadURL(audioRef).then(async (url) => {
+            let data = new FormData();
+            data.append("fileUrl", url)
+            //await fetch('http://localhost:5000/stt/' + 'en' + '/' + 'zh' + '/', {
+            await fetch('https://api-beige-one-57.vercel.app/sttmobile/' + baseLang + '/' + targetLang + '/', {
+                method: 'POST',
+                body:data,
+                headers: {
+                    accept: 'application/json'
+                }
+            }).then(res => res.json()).then(data => {
+                firstMsg = data.transcription
+                setMsgs([...messages, data.transcription])
+                new Audio(url).play()
+            })
         })
         setTranscribing(false)
         setReplying(true)
@@ -90,7 +121,7 @@ export default function AudioRecorder() {
         }).then(res => res.json()).then(data => {
 
             response = data.reply
-            setReplies([...replies,response])
+            
         })
         setReplying(false)
         let toSpeak = new FormData()
@@ -100,10 +131,18 @@ export default function AudioRecorder() {
             method: 'POST',
             body: toSpeak,
             headers: {
-                accept:'application/json'
+                accept:'audio/wav'
             }
-        }).then(res => res.json()).then(data => {
-
+        }).then(res => res.blob()).then(async data => {
+            let fname = `audio/reply-website-${time}.m4a`
+            const audioRef = ref(storage, fname)
+            await uploadBytes(audioRef, data).then(() => {
+              console.log('Audio Uploaded')
+            })
+            await getDownloadURL(audioRef).then(async (url) => {
+                setReplies([...replies,response])
+                new Audio(url).play()
+            })
         })
     };
 
