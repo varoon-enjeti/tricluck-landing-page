@@ -5,6 +5,8 @@ import TopRight from './components/topright';
 import BottomRight from './components/bottomright';
 import BottomLeft from './components/bottomleft';
 import AudioRecorder from "./components/product";
+import Music_App_Section1 from './components/Music_App_Section1';
+import Music_App_Section2 from './components/Music_App_Section2';
 import { useMediaQuery } from 'react-responsive';
 
 function Header() {
@@ -25,9 +27,7 @@ function App() {
     <div className="flex-col text-off-black font-Ubuntu">
       <Header />
       <div className="xl:flex">
-        
-        <TopLeft />
-        <TopRight />
+        <Music_App_Section1 />
       </div>
       <div className="xl:flex w-screen justify-center">
         <div className="xl:w-7/12 h-full">
