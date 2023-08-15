@@ -1,6 +1,6 @@
 import img01 from './img/images/hma-02.png';
 import phone from './img/phone.png';
-import 'animate.css/animate.min.css';
+
 
 export default function Music_App_Section2() {
   return (

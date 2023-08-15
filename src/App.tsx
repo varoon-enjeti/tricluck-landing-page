@@ -17,7 +17,7 @@ import 'leaflet';
 import 'sass';
 import 'swiper';
 import 'wowjs';
-import 'style.css';
+import styles from './components/'
 
 function Header() {
   return (
@@ -41,7 +41,7 @@ function App() {
   return (
     <div className="flex-col text-off-black font-Ubuntu">
       <style>
-        {'style.css'}
+        {styles}
       </style>
       <Header />
       <div className = "mt-20">
