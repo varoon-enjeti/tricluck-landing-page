@@ -8,12 +8,27 @@ import AudioRecorder from "./components/product";
 import Music_App_Section1 from './components/Music_App_Section1';
 import Music_App_Section2 from './components/Music_App_Section2';
 import { useMediaQuery } from 'react-responsive';
+import logo from './components/img/1691638228037.jpeg';
+import 'animate.css';
+import Nft_Section4 from './components/Nft_Section4';
+import 'atropos';
+import 'eslint';
+import 'leaflet';
+import 'sass';
+import 'swiper';
+import 'wowjs';
+import 'style.css';
 
 function Header() {
   return (
-      <header className = "fixed top-0 left-0 w-screen bg-white z-50">
+      <header className = "fixed top-0 left-0 w-screen bg-white z-10">
         
-        <a href="#" className="float-left mt-5 ml-4 xl:m-4 hover:opacity-75"><div className="bg-soft-blue aspect-square w-10 xl:w-12 rounded-full"></div></a>
+        <a href="#" className="float-left mt-3 ml-4 xl:m-3 hover:opacity-75">
+  <div className="aspect-square w-10 h-10 xl:w-14 xl:h-14 rounded-full">
+    <img src={logo} alt="Logo" className="rounded-full w-full h-full" />
+  </div>
+</a>
+        <a href="#" className="float-left lg:text-lg xl:m-4 xl:mr-5 xl:text-5xl hover:opacity-75">Convident</a>
         <a href="#product" className="float-right m-6 lg:text-lg xl:m-4 xl:mr-10 xl:text-xl hover:opacity-75">Product</a>
         <a href="#waitlist" className="float-right mt-6 lg:text-lg xl:m-4 xl:text-xl hover:opacity-75">Join the Waitlist!</a>
       </header>
@@ -25,11 +40,15 @@ function App() {
   
   return (
     <div className="flex-col text-off-black font-Ubuntu">
+      <style>
+        {'style.css'}
+      </style>
       <Header />
-      <div className="xl:flex">
+      <div className = "mt-20">
         <Music_App_Section1 />
+        <Nft_Section4 />
       </div>
-      <div className="xl:flex w-screen justify-center">
+      {/* <div className="xl:flex w-screen justify-center">
         <div className="xl:w-7/12 h-full">
             {isMobile ? <BottomRight /> : <BottomLeft />}
           </div>
@@ -38,9 +57,9 @@ function App() {
             {isMobile ? <BottomLeft /> : <BottomRight />}
           </div>
         </div>
-      </div>
-      <AudioRecorder />
-    </div>
+      </div> 
+  <AudioRecorder />*/}
+  </div>
   );
 }
 
